@@ -21,14 +21,28 @@ function VercelLogo({ className }) {
   );
 }
 
+function Avatar({ src, alt = "" }) {
+  return (
+    <img
+      className="h-8 w-8 rounded-full border border-gray-200"
+      src={src}
+      alt={alt}
+    />
+  );
+}
+
 export default function Home() {
   return (
     <div>
       <div className="bg-white">
-        <header>
-          <nav className="max-w-5xl mx-auto pt-5">
+        <header className=" border-b border-gray-200 space-y-2">
+          <nav className="max-w-5xl mx-auto flex items-center justify-between pt-4">
             <div className="flex items-center space-x-3">
-              <VercelLogo className="h-6" />
+              <Link href="#">
+                <a>
+                  <VercelLogo className="h-6" />
+                </a>
+              </Link>
               <span>
                 <svg
                   viewBox="0 0 32 32"
@@ -42,8 +56,7 @@ export default function Home() {
                 <Link href="#">
                   <a className="inline-flex items-center space-x-2">
                     <span>
-                      <img
-                        className="h-7 w-7 rounded-full border border-gray-200"
+                      <Avatar
                         src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
                         alt="Andres Reyes"
                       />
@@ -51,36 +64,88 @@ export default function Home() {
                     <span>Andres Reyes</span>
                   </a>
                 </Link>
-                <button type="button">
+                <button
+                  type="button"
+                  className="inline-flex items-center border border-transparent rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 transition ease-in-out duration-150"
+                >
                   <SelectIcon className="h-5 w-5 text-gray-400" />
                 </button>
               </span>
             </div>
-            <div>
-              <button type="button">Feedback</button>
-              <Link href="#">
-                <a>Blog</a>
-              </Link>
-              <Link href="#">
-                <a>Support</a>
-              </Link>
-              <Link href="#">
-                <a>Docs</a>
-              </Link>
-              <button type="button">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-5">
+                <button
+                  type="button"
+                  className="border border-gray-200 rounded px-3 py-1.5 text-sm leading-5 text-gray-600 hover:border-black transition ease-in-out duration-150"
+                >
+                  Feedback
+                </button>
+                <Link href="#">
+                  <a className="inline-block text-sm leading-5 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                    Blog
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a className="inline-block text-sm leading-5 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                    Support
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a className="inline-block text-sm leading-5 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                    Docs
+                  </a>
+                </Link>
+              </div>
+              <button type="button" className="h-5 w-5 text-gray-400">
                 <DotsHorizontalIcon />
               </button>
-              <span>
-                <button type="button">
-                  <img
-                    src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
-                    alt="Andres Reyes"
-                  />
-                </button>
-              </span>
+              <button type="button">
+                <Avatar
+                  src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
+                  alt="Andres Reyes"
+                />
+              </button>
             </div>
           </nav>
-          <nav></nav>
+          <div className="max-w-5xl mx-auto">
+            <nav className="-mb-px flex text-sm space-x-5 leading-5">
+              <Link href="#">
+                <a className="border-b-2 border-black px-0.5 py-3 text-black">
+                  Overview
+                </a>
+              </Link>
+              <Link href="#">
+                <a className="border-b-2 border-transparent px-0.5 py-3 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                  Projects
+                </a>
+              </Link>
+              <Link href="#">
+                <a className="border-b-2 border-transparent px-0.5 py-3 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                  Integrations
+                </a>
+              </Link>
+              <Link href="#">
+                <a className="border-b-2 border-transparent px-0.5 py-3 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                  Activity
+                </a>
+              </Link>
+              <Link href="#">
+                <a className="border-b-2 border-transparent px-0.5 py-3 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                  Domains
+                </a>
+              </Link>
+              <Link href="#">
+                <a className="border-b-2 border-transparent px-0.5 py-3 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                  Usage
+                </a>
+              </Link>
+              <Link href="#">
+                <a className="border-b-2 border-transparent px-0.5 py-3 text-gray-500 hover:text-black transition ease-in-out duration-150">
+                  Settings
+                </a>
+              </Link>
+            </nav>
+          </div>
         </header>
       </div>
     </div>
