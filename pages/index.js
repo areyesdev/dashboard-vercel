@@ -1,6 +1,9 @@
 import SelectIcon from "heroicons/solid/selector.svg";
+import CogIcon from "heroicons/solid/cog.svg";
 import DotsHorizontalIcon from "heroicons/solid/dots-horizontal.svg";
+import PlusIcon from "heroicons/solid/plus.svg";
 import Link from "next/link";
+import { useState } from "react";
 
 function VercelLogo({ className }) {
   return (
@@ -38,10 +41,14 @@ function GitHubLogo({ className }) {
   );
 }
 
-function Avatar({ src, alt = "" }) {
+function Avatar({ src, alt = "", size = "md" }) {
+  const sizeClasses = {
+    sm: "h-6 w-6",
+    md: "h-8 w-8",
+  }[size];
   return (
     <img
-      className="h-8 w-8 rounded-full border border-gray-200"
+      className={`${sizeClasses} rounded-full border border-gray-200`}
       src={src}
       alt={alt}
     />
@@ -132,9 +139,77 @@ function ActivityFeedItem() {
           logged in via GitHub
         </span>
       </div>
-      <div className="text-sm leading-5 text-gray-500">
+      <div className="text-sm leading-5 text-gray-400">
         <time dateTime="2021-04-28">26d</time>
       </div>
+    </div>
+  );
+}
+
+function AccountSwitcher() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="relative">
+      <span className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+        <Link href="#">
+          <a className="inline-flex items-center space-x-2">
+            <span>
+              <Avatar
+                src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
+                alt="Andres Reyes"
+              />
+            </span>
+            <span>Andres Reyes</span>
+          </a>
+        </Link>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          type="button"
+          className="inline-flex items-center border border-transparent rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 transition ease-in-out duration-150"
+        >
+          <SelectIcon className="h-5 w-5 text-gray-300" />
+        </button>
+      </span>
+      {isOpen && (
+        <div className="absolute w-56 rounded-md bg-white divide-y divide-gray-200 shadow-lg overflow-hidden">
+          <div className="py-2">
+            <div className="pt-3 px-4 pb-2 text-xs leading-5 uppercase tracking-wide text-gray-500">
+              Personal Account
+            </div>
+            <ul>
+              <li className="px-4 py-3 bg-gray-50">
+                <div className="flex items-center justify-between space-x-4">
+                  <Link href="#">
+                    <a className="flex items-center space-x-4 text-sm leading-5 text-gray-500 hover:text-black">
+                      <Avatar
+                        size="sm"
+                        src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
+                        alt="Andres Reyes"
+                      />
+                      <span>Andres Reyes</span>
+                    </a>
+                  </Link>
+                  <div>
+                    <Link href="#">
+                      <a className="text-gray-300 hover:text-black">
+                        <CogIcon className="h-5 w-5 " />
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="py-2">
+            <Link href="#">
+              <a className="px-4 py-3 flex items-center justify-between text-sm leading-5 text-gray-500 hover:text-black">
+                <span>Create a Team</span>
+                <PlusIcon className="h-5 w-5" />
+              </a>
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -159,25 +234,7 @@ export default function Home() {
                   <line x1="10" y1="22" x2="24" y2="4" />
                 </svg>
               </span>
-              <span className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
-                <Link href="#">
-                  <a className="inline-flex items-center space-x-2">
-                    <span>
-                      <Avatar
-                        src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
-                        alt="Andres Reyes"
-                      />
-                    </span>
-                    <span>Andres Reyes</span>
-                  </a>
-                </Link>
-                <button
-                  type="button"
-                  className="inline-flex items-center border border-transparent rounded p-0.5 hover:border-gray-200 hover:bg-gray-50 transition ease-in-out duration-150"
-                >
-                  <SelectIcon className="h-5 w-5 text-gray-400" />
-                </button>
-              </span>
+              <AccountSwitcher />
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-5">
