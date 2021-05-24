@@ -23,12 +23,17 @@ function VercelLogo({ className }) {
 function GitHubLogo({ className }) {
   return (
     <svg
-      fill="currentColor"
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
       className={className}
+      height="32"
+      viewBox="0 0 16 16"
+      version="1.1"
+      width="32"
+      aria-hidden="true"
     >
-      <path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z"></path>
+      <path
+        fillRule="evenodd"
+        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+      ></path>
     </svg>
   );
 }
@@ -40,6 +45,75 @@ function Avatar({ src, alt = "" }) {
       src={src}
       alt={alt}
     />
+  );
+}
+
+function ProjectCard() {
+  return (
+    <div className="divide-y divide-gray-200 rounded-lg bg-white shadow overflow-hidden">
+      <div className="p-6 space-y-6">
+        <div className="flex items-center justify-between">
+          <h3 className="text-2xl font-semibold">workshop-jaume</h3>
+          <a
+            href="#"
+            className="border border-gray-200 rounded px-4 py-1.5 text-sm leading-5 font-medium text-gray-600 hover:border-black transition ease-in-out duration-150"
+          >
+            Visit
+          </a>
+        </div>
+        <div className="space-y-3">
+          <div
+            aria-label="Production deployment"
+            className="flex items-center space-x-3"
+          >
+            <Link href="#">
+              <a className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+                <span
+                  aria-hidden
+                  className=" mt-px inline-block h-2.5 w-2.5 rounded-full bg-green-300"
+                ></span>
+                <span>workshopjaume.com</span>
+              </a>
+            </Link>
+            <span className="inline-flex rounded-full bg-gary-50 border border-gray-200 px-1.5 py-px text-xs leading-4 font-medium">
+              Production
+            </span>
+            <span className="text-sm leading-5 text-gray-500">
+              <time daytime="2021-05-23">1d</time>
+            </span>
+          </div>
+          <div
+            aria-label="Latest deployment"
+            className="flex items-center space-x-3"
+          >
+            <Link href="#">
+              <a className="inline-flex items-center space-x-2 text-sm leading-5 font-medium">
+                <span
+                  aria-hidden
+                  className=" mt-px inline-block h-2.5 w-2.5 rounded-full bg-green-300"
+                ></span>
+                <span>workshopjaume.now.sh</span>
+              </a>
+            </Link>
+            <span className="inline-flex rounded-full bg-gary-50 border border-gray-200 px-1.5 py-px text-xs leading-4 font-medium">
+              Latest
+            </span>
+            <span className="text-sm leading-5 text-gray-500">
+              <time daytime="2021-05-23">1d</time>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="px-6 py-3">
+        <a
+          href="#"
+          className="inline-flex items-center space-x-2 text-sm leading-5 font-medium"
+        >
+          <GitHubLogo className="h-4 w-4" />
+          <span>areyesdev/workshop-portfolio</span>
+        </a>
+      </div>
+    </div>
   );
 }
 
@@ -201,6 +275,36 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="border-t border-gray-200 pb-10">
+        <main className="-mt-9 max-w-5xl mx-auto px-6 grid grid-cols-12 gap-20">
+          <div className="col-span-7">
+            <h2 className="sr-only">Recent Projects</h2>
+            <div className="space-y-12">
+              <ul className="space-y-12">
+                <li>
+                  <ProjectCard />
+                </li>
+                <li>
+                  <ProjectCard />
+                </li>
+                <li>
+                  <ProjectCard />
+                </li>
+              </ul>
+              <div>
+                <Link href="#">
+                  <a className="text-sm leading-5 font-bold text-blue-500 hover:underline">
+                    View All Projects
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-5">
+            <h2>Recent Activity</h2>
+          </div>
+        </main>
       </div>
     </div>
   );
