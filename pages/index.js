@@ -117,6 +117,27 @@ function ProjectCard() {
   );
 }
 
+function ActivityFeedItem() {
+  return (
+    <div className="flex items-center justify-between space-x-4">
+      <div className="flex items-center space-x-4 text-sm leading-5">
+        <Avatar
+          src="https://pbs.twimg.com/profile_images/1316586076895686657/9ihQdlvF_400x400.jpg"
+          alt="Andres Reyes"
+        />
+        <span className="text-gray-600">
+          <Link href="#">
+            <a className="text-black hover:underline">You</a>
+          </Link>{" "}
+          logged in via GitHub
+        </span>
+      </div>
+      <div className="text-sm leading-5 text-gray-500">
+        <time dateTime="2021-04-28">26d</time>
+      </div>
+    </div>
+  );
+}
 export default function Home() {
   return (
     <div>
@@ -301,8 +322,62 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col-span-5">
-            <h2>Recent Activity</h2>
+          <div className="space-y-9 col-span-5 pt-1">
+            <h2 className="text-sm leading-5 font-bold">Recent Activity</h2>
+            <ul className=" divide-y divide-gray-200">
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+              <li className="py-3">
+                <ActivityFeedItem />
+              </li>
+            </ul>
+            <div>
+              <Link href="#">
+                <a className="text-sm leading-5 font-bold text-blue-500 hover:underline">
+                  View All Activity
+                </a>
+              </Link>
+            </div>
           </div>
         </main>
       </div>
